@@ -1,28 +1,19 @@
 import { useState } from "react"
 import styles from "./Header.module.scss"
-import {
-  useRecoilStateLoadable,
-  useRecoilValue,
-  useSetRecoilState,
-} from "recoil"
-import { menuState } from "@/store/atoms/menuState"
-import { selectedMenuState } from "@/store/atoms/selectedMenuState"
+import useMenuClick from "@/hooks/useMenuClick"
 
 function Header() {
-  //const setSelectedMenu = useSetRecoilState(selectedMenuState)
-  const [selectedMenu, setSelectedMenu] =
-    useRecoilStateLoadable(selectedMenuState)
-  const menuList = useRecoilValue(menuState)
   const [isActive, setIsActive] = useState<boolean>(false)
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth)
-  // const [element, onMoveElement] = useScroll()
-  const handleActive = () => {
-    setIsActive(!isActive)
-  }
-  const handleClick = (menuName) => {
-    setSelectedMenu(menuName)
-    console.log(selectedMenu)
-  }
+  const menuList = [
+    { label: "about", name: "About me" },
+    { label: "skills", name: "skills" },
+    { label: "archiving", name: "Archiving" },
+    { label: "project", name: "Project" },
+    { label: "career", name: "career" },
+  ]
+  const handleMenuClick = useMenuClick()
+
   window.onresize = () => {
     setWindowWidth(window.innerWidth)
     if (windowWidth > 768) {
@@ -39,28 +30,27 @@ function Header() {
           <ul>
             {menuList.map((tab) => {
               return (
-                <li key={tab.name}>
+                <li key={tab.label}>
                   <button
                     type="button"
-                    onClick={() => handleClick(tab.label)}
-                    // onClick={() => {
-                    //   setSelectedMenu(tab.label)
-                    //   console.log(tab.label, selectedMenu)
-                    // }}
+                    onClick={() => {
+                      handleMenuClick(`${tab.label}`)
+                    }}
                   >
                     {tab.name}
                   </button>
                 </li>
               )
             })}
-            {/* {Object.entries(menus).map(([index, tab]) => (
-              <li key={index}>
-                <button onClick={tab[0].onMoveElement}>이름</button>
-              </li>
-            ))} */}
           </ul>
         </nav>
-        <button type="button" className={styles.mBtn} onClick={handleActive}>
+        <button
+          type="button"
+          className={styles.mBtn}
+          onClick={() => {
+            setIsActive(!isActive)
+          }}
+        >
           <span></span>
           <span></span>
           <span></span>

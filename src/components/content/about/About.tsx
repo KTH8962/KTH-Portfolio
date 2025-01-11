@@ -1,13 +1,14 @@
-import useScrolls from "@/hooks/useScrolls"
+import { useEffect } from "react"
+import { useSetRecoilState } from "recoil"
+import { classState } from "@/store/atoms/classState"
 import styles from "./About.module.scss"
 
 function About() {
-  const test = useScrolls()
-  return (
-    <div ref={test.element} className={`${styles.content} ${styles.about}`}>
-      about
-    </div>
-  )
+  const setClassName = useSetRecoilState(classState)
+  useEffect(() => {
+    setClassName((prevClassName) => [...prevClassName, styles.about])
+  }, [setClassName])
+  return <div className={`${styles.content} ${styles.about}`}>about</div>
 }
 
 export default About
