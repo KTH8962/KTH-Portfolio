@@ -1,0 +1,479 @@
+@use "sass:math";
+@forward "./font.scss";
+/*** basic-reset ***/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+* {
+  text-size-adjust: 110%;
+  -webkit-text-size-adjust: 110%;
+  -moz-text-size-adjust: 110%;
+  -o-text-size-adjust: 110%;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+strong {
+  font-weight: bold;
+}
+.clearfix::after {
+  clear: both;
+  display: block;
+  content: "";
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+a:hover {
+  text-decoration: none;
+}
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+sub {
+  vertical-align: sub;
+}
+img {
+  vertical-align: top;
+  border: 0;
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -o-crisp-edges; /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+}
+.blind {
+  position: absolute;
+  top: -9999999px;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+.underline {
+  text-decoration: underline !important;
+  text-underline-offset: 2px;
+}
+:focus {
+  outline: none;
+}
+:disabled {
+  cursor: auto !important;
+}
+input::placeholder,
+input::-webkit-input-placeholder {
+  color: var(--base-white-04);
+  font-family: inherit;
+}
+select {
+  -webkit-appearance: none;
+  appearance: none;
+}
+select option {
+  color: #000;
+}
+input {
+  border: 0;
+  background-color: transparent;
+}
+input[readonly="readonly"] {
+  cursor: default;
+}
+input[readonly],
+textarea[readonly] {
+  cursor: default;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--base-white) inset;
+  box-shadow: 0 0 0 1000px var(--base-white) inset;
+  -webkit-text-fill-color: var(--gowith-white) !important;
+}
+input[type="text"]::-webkit-outer-spin-button,
+input[type="text"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+input {
+  font-size: inherit;
+  color: inherit;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: inherit;
+  padding: 0;
+}
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background: #b3b3b3;
+}
+.fixed {
+  overflow: hidden !important;
+}
+input[type="radio"],
+input[type="checkbox"],
+input[type="file"] {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+button {
+  border: 0;
+  font-size: inherit;
+  background-color: transparent;
+  line-height: inherit;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  font-family: var(--base-font);
+  color: var(--color-contrasty3);
+  padding-top: 80px;
+}
+label {
+  cursor: pointer;
+}
+
+:root {
+  --base-font: "Montserrat", "Noto Sans KR", sans-serif;
+  --noto-font: "Noto Sans KR", sans-serif;
+  --mont-font: "Montserrat", sans-serif;
+  --base-black: #000000;
+  --base-white: #ffffff;
+  --color-contrasty2: #222222;
+  --color-contrasty3: #333333;
+  --color-contrastyA: #aaaaaa;
+  --color-contrastyC: #cccccc;
+  --color-contrastyE5: #e5e5e5;
+  --color-contrastyF5: #f5f5f5;
+  --color-contrastyFA: #fafafa;
+  --color-red: #ff334b;
+  --color-red2: #ff5c6f;
+  --color-blue: #4f7eff;
+  --color-green: #06c755;
+  --btn-blue: #1e51a4;
+  --btn-blue2: #003995;
+  --btn-skyblue: #67b2e7;
+  --btn-gray: #aaaaaa;
+  --btn-gray2: #bdbdbd;
+  --btn-gray3: #666666;
+}
+/*** //basic-reset ***/
+
+/*** width ***/
+.wid-auto {
+  width: auto !important;
+}
+.wid100P {
+  width: 100% !important;
+}
+/*** //width ***/
+
+/*** overflow ***/
+.of-h {
+  overflow: hidden !important;
+}
+.of-s {
+  overflow: scroll !important;
+}
+.ofy-s {
+  overflow-y: scroll !important;
+}
+.ofx-s {
+  overflow-x: scroll !important;
+}
+/*** //overflow ***/
+
+/*** white-space + text-overflow ***/
+.WTO {
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.WTOB {
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: block !important;
+}
+/*** //white-space + text-overflow ***/
+
+/*** display ***/
+.block {
+  display: block !important;
+}
+.none {
+  display: none !important;
+}
+/*** //display ***/
+
+/*** setting ***/
+@mixin FLEX($justify: null, $align: null, $direction: null, $wrap: null) {
+  display: flex;
+  @if $justify {
+    justify-content: $justify;
+  }
+  @if $align {
+    align-items: $align;
+  }
+  @if $direction {
+    flex-direction: $direction;
+  }
+  @if $wrap {
+    flex-wrap: $wrap;
+  }
+}
+@mixin GRID($columns: null, $gap: null) {
+  display: grid;
+  grid-template-columns: $columns;
+  gap: $gap;
+}
+@mixin PD-IP1($t, $r, $b, $l) {
+  padding: {
+    top: if(math.is-unitless($t), #{$t}px, $t);
+    right: if(math.is-unitless($r), #{$r}px, $r);
+    bottom: if(math.is-unitless($b), #{$b}px, $b);
+    left: if(math.is-unitless($l), #{$l}px, $l);
+  }
+}
+@mixin PD-IP2($tb, $lr) {
+  padding: if(math.is-unitless($tb), #{$tb}px, $tb)
+    if(math.is-unitless($lr), #{$lr}px, $lr);
+}
+@mixin MG-IP1($t, $r, $b, $l) {
+  margin: {
+    top: if(math.is-unitless($t), #{$t}px, $t);
+    right: if(math.is-unitless($r), #{$r}px, $r);
+    bottom: if(math.is-unitless($b), #{$b}px, $b);
+    left: if(math.is-unitless($l), #{$l}px, $l);
+  }
+}
+@mixin MG-IP2($tb, $lr) {
+  margin: if(math.is-unitless($tb), #{$tb}px, $tb)
+    if(math.is-unitless($lr), #{$lr}px, $lr);
+}
+@mixin MG-AUTO($tb) {
+  margin: if(math.is-unitless($tb), #{$tb}px, $tb) auto;
+}
+@mixin WTO($block: false, $line: false) {
+  @if $line {
+    white-space: normal;
+    display: -webkit-box !important;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  } @else {
+    white-space: nowrap;
+    @if $block {
+      display: block !important;
+    }
+  }
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+@mixin POSITION($pos, $t: null, $r: null, $b: null, $l: null) {
+  position: $pos;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+}
+@mixin FONT(
+  $size: null,
+  $weight: null,
+  $color: null,
+  $lineHeight: null,
+  $letterSpacing: null
+) {
+  @if $size {
+    font-size: if(math.is-unitless($size), #{$size}px, $size);
+  }
+  font: {
+    weight: $weight;
+  }
+  color: $color;
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
+}
+@mixin BG($pos: false, $size: auto, $repeat: no-repeat) {
+  @if $pos {
+    background: $pos / $size $repeat;
+  } @else {
+    background-size: $size;
+    background-repeat: $repeat;
+  }
+}
+@mixin BORDER($box, $color, $px: 1, $type: solid) {
+  @if $box == full {
+    border: if(math.is-unitless($px), #{$px}px, $px) $type $color;
+  } @else if $box == top {
+    border-top: if(math.is-unitless($px), #{$px}px, $px) $type $color;
+  } @else if $box == right {
+    border-right: if(math.is-unitless($px), #{$px}px, $px) $type $color;
+  } @else if $box == bottom {
+    border-bottom: if(math.is-unitless($px), #{$px}px, $px) $type $color;
+  } @else if $box == left {
+    border-left: if(math.is-unitless($px), #{$px}px, $px) $type $color;
+  }
+}
+@mixin BOX-SHADOW($x, $y, $blur, $spread: null, $color) {
+  $spread-value: if($spread == null, 0px, $spread);
+  box-shadow: if(math.is-unitless($x), #{$x}px, $x)
+    if(math.is-unitless($y), #{$y}px, $y)
+    if(math.is-unitless($blur), #{$blur}px, $blur)
+    if(math.is-unitless($spread-value), #{$spread-value}px, $spread-value)
+    $color;
+}
+$url-images: "../images/";
+/*** //setting ***/
+
+.content {
+  height: 300px;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+}
