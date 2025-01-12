@@ -1,10 +1,13 @@
 import { RecoilRoot } from "recoil"
 import MainPage from "./pages/MainPage"
+import { BrowserRouter } from "react-router-dom"
 
 function App() {
   return (
     <RecoilRoot>
-      <MainPage />
+      <BrowserRouter>
+        <MainPage />
+      </BrowserRouter>
     </RecoilRoot>
   )
 }

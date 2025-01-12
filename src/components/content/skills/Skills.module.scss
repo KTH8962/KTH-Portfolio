@@ -1,3 +1,96 @@
+@use "sass:list";
+$itemBg: (
+  (
+    rgb(248, 112, 112),
+    rgb(121, 184, 105),
+    rgb(247, 205, 147),
+    rgb(98, 186, 221),
+    rgb(0, 0, 0),
+    rgb(170, 89, 224),
+    rgb(212, 126, 13),
+    rgb(56, 90, 70)
+  ),
+  (
+    rgb(0, 0, 0),
+    rgb(121, 184, 105),
+    rgb(98, 186, 221),
+    rgb(212, 126, 13),
+    rgb(248, 112, 112),
+    rgb(170, 89, 224),
+    rgb(56, 90, 70),
+    rgb(247, 205, 147)
+  ),
+  (
+    rgb(247, 205, 147),
+    rgb(0, 0, 0),
+    rgb(121, 184, 105),
+    rgb(248, 112, 112),
+    rgb(170, 89, 224),
+    rgb(212, 126, 13),
+    rgb(56, 90, 70),
+    rgb(98, 186, 221)
+  )
+);
+$ico-name: (code, pub, front, back, deploy, tool, community2);
 .skills {
-  @include FLEX;
+  background-color: rgb(255, 240, 158);
+  &__wrap {
+    @include FLEX(center, center);
+  }
+  &__list {
+    @include FLEX(center, null, null, wrap);
+    width: 100%;
+    max-width: 1200px;
+    gap: 35px 30px;
+    li {
+      @include PD-IP1(25, 20, 30, 20);
+      @include BOX-SHADOW(5, 5, 10, 0, rgba(0, 0, 0, 0.3));
+      width: calc(25% - calc(90px / 4));
+      background-color: rgb(255, 255, 255, 0.7);
+      border-radius: 20px;
+      &:nth-of-type(3n-1) {
+        @for $idx from 1 through 8 {
+          .skills__info__item:nth-of-type(#{$idx}) {
+            background-color: list.nth(list.nth($itemBg, 1), $idx);
+          }
+        }
+      }
+      &:nth-of-type(3n-2) {
+        @for $idx from 1 through 8 {
+          .skills__info__item:nth-of-type(#{$idx}) {
+            background-color: list.nth(list.nth($itemBg, 2), $idx);
+          }
+        }
+      }
+      &:nth-of-type(3n) {
+        @for $idx from 1 through 8 {
+          .skills__info__item:nth-of-type(#{$idx}) {
+            background-color: list.nth(list.nth($itemBg, 3), $idx);
+          }
+        }
+      }
+    }
+  }
+  &__tit {
+    @include FONT(28, 700, null, 1);
+    @include PD-IP1(5, 0, 5, 50);
+    @include BG(left center, 38px);
+    @each $item in $ico-name {
+      &.#{$item} {
+        background-image: url($url-images-ico + "ico_#{$item}.png");
+      }
+    }
+  }
+
+  &__info {
+    @include FLEX(null, null, null, wrap);
+    @include MG-IP1(20, 0, 0, 0);
+    gap: 7px 5px;
+    &__item {
+      @include FONT(14, 500);
+      @include PD-IP2(5, 12);
+      border-radius: 12px;
+      color: var(--base-white);
+    }
+  }
 }

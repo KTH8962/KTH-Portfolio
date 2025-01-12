@@ -9,7 +9,9 @@ function useMenuClick() {
       className.includes(menu)
     )
     const headerHeight = document.querySelector("header").clientHeight
-    const selectedItem = document.querySelector(`.${filterClass[0]}`)
+    const selectedItem = document.querySelector(
+      `.${filterClass[filterClass.length - 1]}`
+    )
     window.scrollTo({
       behavior: "smooth",
       top:

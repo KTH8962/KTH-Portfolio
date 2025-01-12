@@ -21,10 +21,8 @@ function Header() {
     }
   }
   return (
-    <header className={styles.header}>
-      <div
-        className={`${styles.header__wrapper} ${isActive ? styles.active : ""}`}
-      >
+    <header className={`${styles.header} ${isActive ? styles.active : ""}`}>
+      <div className={`${styles.header__wrapper}`}>
         <h1 className={styles.header__logo}>KTH Portfolio</h1>
         <nav className={styles.gnb}>
           <ul>

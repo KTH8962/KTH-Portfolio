@@ -4,7 +4,7 @@ import { classState } from "@/store/atoms/classState"
 import { useEffect } from "react"
 
 function Project() {
-  const setClassName = useSetRecoilState(classState)
+  const setClassName = useSetRecoilState<Array<string>>(classState)
   useEffect(() => {
     setClassName((prevClassName) => [...prevClassName, styles.project])
   }, [setClassName])

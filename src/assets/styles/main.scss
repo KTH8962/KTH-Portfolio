@@ -368,25 +368,19 @@ label {
   grid-template-columns: $columns;
   gap: $gap;
 }
-@mixin PD-IP1($t, $r, $b, $l) {
-  padding: {
-    top: if(math.is-unitless($t), #{$t}px, $t);
-    right: if(math.is-unitless($r), #{$r}px, $r);
-    bottom: if(math.is-unitless($b), #{$b}px, $b);
-    left: if(math.is-unitless($l), #{$l}px, $l);
-  }
+@mixin PD-IP1($t: null, $r: null, $b: null, $l: null) {
+  padding: if(math.is-unitless($t), #{$t}px, $t)
+    if(math.is-unitless($r), #{$r}px, $r) if(math.is-unitless($b), #{$b}px, $b)
+    if(math.is-unitless($l), #{$l}px, $l);
 }
 @mixin PD-IP2($tb, $lr) {
   padding: if(math.is-unitless($tb), #{$tb}px, $tb)
     if(math.is-unitless($lr), #{$lr}px, $lr);
 }
 @mixin MG-IP1($t, $r, $b, $l) {
-  margin: {
-    top: if(math.is-unitless($t), #{$t}px, $t);
-    right: if(math.is-unitless($r), #{$r}px, $r);
-    bottom: if(math.is-unitless($b), #{$b}px, $b);
-    left: if(math.is-unitless($l), #{$l}px, $l);
-  }
+  margin: if(math.is-unitless($t), #{$t}px, $t)
+    if(math.is-unitless($r), #{$r}px, $r) if(math.is-unitless($b), #{$b}px, $b)
+    if(math.is-unitless($l), #{$l}px, $l);
 }
 @mixin MG-IP2($tb, $lr) {
   margin: if(math.is-unitless($tb), #{$tb}px, $tb)
@@ -412,7 +406,7 @@ label {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-@mixin POSITION($pos, $t: null, $r: null, $b: null, $l: null) {
+@mixin POSITION($pos: relative, $t: null, $r: null, $b: null, $l: null) {
   position: $pos;
   top: $t;
   right: $r;
@@ -465,15 +459,30 @@ label {
     if(math.is-unitless($spread-value), #{$spread-value}px, $spread-value)
     $color;
 }
-$url-images: "../images/";
+$url-images: "/assets/images/";
+$url-images-ico: "/assets/images/ico/";
 /*** //setting ***/
-
-.content {
-  height: 300px;
-}
 
 @media screen and (max-width: 768px) {
   body {
     padding-top: 70px;
+  }
+}
+
+@font-face {
+  font-family: "Tenada";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.content {
+  @include PD-IP2(100, 20);
+  &__tit {
+    @include FONT(48, 700, null, 1);
+    @include MG-IP1(0, 0, 50, 0);
+    font-family: "Tenada";
+    text-align: center;
   }
 }

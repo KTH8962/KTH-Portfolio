@@ -1,7 +1,44 @@
-@font-face {
-  font-family: "establishRetrosansOTF";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/establishRetrosansOTF.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
+.visual {
+  @include POSITION;
+  @include BG(center, cover);
+  @include FONT(null, null, var(--base-white));
+  background-image: url($url-images + "visual_bg.jpg");
+  height: 600px;
+  &::before {
+    @include POSITION(absolute);
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-color: rgba($color: #000000, $alpha: 0.4);
+  }
+  &__wrapper {
+    @include FLEX(center, center, column);
+    @include POSITION;
+    @include PD-IP2(40, 20);
+    height: 100%;
+    text-align: center;
+  }
+  &__tit {
+    @include FONT(58, 700);
+    font-family: "Tenada";
+  }
+  &__desc {
+    @include FONT(18, 500, rgba(255, 255, 255, 0.9), 1.6);
+    @include MG-IP1(16, 0, 0, 0);
+  }
+  &__btn {
+    @include FONT(16, 700, var(--color-contrasty3));
+    @include MG-IP1(40, 0, 0, 0);
+    @include PD-IP2(15, 30);
+    background-color: var(--base-white);
+    border-radius: 30px;
+    transition: all 0.3s;
+    span {
+      font-family: "Tenada";
+    }
+    &:hover {
+      background-color: var(--color-blue);
+      color: var(--base-white);
+    }
+  }
 }

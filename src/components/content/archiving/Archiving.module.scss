@@ -1,3 +1,50 @@
 .archiving {
-  @include FLEX;
+  background-color: var(--color-contrastyC);
+  &__wrap {
+    @include FLEX(center, center);
+  }
+  &__list {
+    @include FLEX(center, center);
+    width: 100%;
+    max-width: 800px;
+    gap: 20px;
+    li {
+      @include POSITION(relative, 0);
+      @include BOX-SHADOW(5, 5, 10, null, rgba(0, 0, 0, 0.3));
+      @include PD-IP2(30, 20);
+      width: calc(50% - 10px);
+      border-radius: 20px;
+      background-color: var(--base-white);
+      transition: all 0.2s;
+      a {
+        @include FLEX(null, null, column);
+      }
+      &:hover {
+        @include POSITION(null, -10px);
+      }
+    }
+  }
+  &__tit {
+    @include FONT(42, 700);
+    @include BG(left center, 50px);
+    @include PD-IP1(0, 0, 0, 66);
+    @include MG-IP1(0, 0, 20, 0);
+    background-image: url($url-images-ico + "ico_github.png");
+  }
+  &__desc {
+    @include POSITION;
+    @include FONT(18, 500);
+    @include PD-IP1(0, 0, 0, 10);
+    &::before {
+      @include POSITION(absolute, 11px, null, null, 0);
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 100%;
+      background-color: var(--color-contrasty3);
+    }
+    + .archiving__desc {
+      @include MG-IP1(3, 0, 0, 0);
+    }
+  }
 }
