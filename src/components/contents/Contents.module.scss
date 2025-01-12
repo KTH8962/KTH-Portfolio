@@ -42,3 +42,24 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .visual {
+    height: 380px;
+    &__wrapper {
+      @include PD-IP2(30, 20);
+    }
+    &__tit {
+      @include FONT(32);
+    }
+    &__desc {
+      @include FONT(14);
+      @include MG-IP1(10, 0, 0, 0);
+    }
+    &__btn {
+      @include FONT(12);
+      @include PD-IP2(10, 20);
+      @include MG-IP1(20, 0, 0, 0);
+    }
+  }
+}

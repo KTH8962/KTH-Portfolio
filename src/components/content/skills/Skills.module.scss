@@ -87,10 +87,64 @@ $ico-name: (code, pub, front, back, deploy, tool, community2);
     @include MG-IP1(20, 0, 0, 0);
     gap: 7px 5px;
     &__item {
-      @include FONT(14, 500);
+      @include FONT(14, 700);
       @include PD-IP2(5, 12);
       border-radius: 12px;
       color: var(--base-white);
+    }
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .skills {
+    &__list {
+      gap: 25px;
+      li {
+        width: calc(33.333% - calc(50px / 3));
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .skills {
+    &__list {
+      gap: 20px;
+      li {
+        width: calc(50% - 10px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .skills {
+    &__list {
+      li {
+        @include PD-IP1(20, 15, 25, 15);
+      }
+    }
+    &__tit {
+      @include FONT(20);
+      @include PD-IP1(5, 0, 5, 40);
+      background-size: 30px;
+    }
+    &__info {
+      @include MG-IP1(14, 0, 0, 0);
+      &__item {
+        @include FONT(12);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .skills {
+    &__list {
+      gap: 15px 0;
+      li {
+        width: 100%;
+      }
     }
   }
 }

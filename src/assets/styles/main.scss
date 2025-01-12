@@ -486,3 +486,13 @@ $url-images-ico: "/assets/images/ico/";
     text-align: center;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .content {
+    @include PD-IP2(60, 20);
+    &__tit {
+      @include FONT(28);
+      @include MG-IP1(0, 0, 30, 0);
+    }
+  }
+}

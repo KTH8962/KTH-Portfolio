@@ -16,13 +16,6 @@
       border-radius: 20px;
     }
   }
-  @font-face {
-    font-family: "establishRetrosansOTF";
-    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/establishRetrosansOTF.woff")
-      format("woff");
-    font-weight: normal;
-    font-style: normal;
-  }
   &__tit {
     @include FONT(26, 700);
     font-family: "Tenada";
@@ -30,5 +23,35 @@
   &__desc {
     @include FONT(20, 700, var(--color-contrastyA));
     @include MG-IP1(10, 0, 0, 0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about {
+    &__list {
+      gap: 20px;
+      li {
+        @include PD-IP1(35, 20, 45, 20);
+      }
+    }
+    &__tit {
+      @include FONT(20);
+    }
+    &__desc {
+      @include FONT(15);
+      @include MG-IP1(5, 0, 0, 0);
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about {
+    &__list {
+      gap: 20px 0;
+      li {
+        @include PD-IP2(25, 20);
+        width: 100%;
+      }
+    }
   }
 }
