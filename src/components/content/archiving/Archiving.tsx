@@ -1,11 +1,11 @@
 import { useSetRecoilState } from "recoil"
 import { classState } from "@/store/atoms/classState"
-import { useEffect } from "react"
+import { useMemo } from "react"
 import styles from "./Archiving.module.scss"
 
 function Archiving() {
   const setClassName = useSetRecoilState<Array<string>>(classState)
-  useEffect(() => {
+  useMemo(() => {
     setClassName((prevClassName) => [...prevClassName, styles.archiving])
   }, [setClassName])
   return (
@@ -20,7 +20,7 @@ function Archiving() {
                 소스코드 저장소 GitHub입니다.
               </span>
               <span className={styles.archiving__desc}>
-                과거부터 현재까지 모든 소스 코드
+                과거부터 현재까지 모든 소스 코드입니다.
               </span>
             </a>
           </li>

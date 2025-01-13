@@ -1,12 +1,12 @@
 import { useSetRecoilState } from "recoil"
 import { classState } from "@/store/atoms/classState"
-import { useEffect } from "react"
+import { useMemo } from "react"
 import styles from "./About.module.scss"
 import { Link } from "react-router-dom"
 
 function About() {
   const setClassName = useSetRecoilState<Array<string>>(classState)
-  useEffect(() => {
+  useMemo(() => {
     setClassName((prevClassName) => [...prevClassName, styles.about])
   }, [setClassName])
   return (

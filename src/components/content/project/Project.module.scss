@@ -1,3 +1,124 @@
 .project {
-  @include FLEX;
+  background: rgb(253, 245, 245);
+  &__wrap {
+    @include FLEX(center, center);
+  }
+  &__list {
+    @include FLEX(null, null, null, wrap);
+    max-width: 1000px;
+    width: 100%;
+    gap: 35px;
+    & > li {
+      @include PD-IP1(20, 25, 30, 25);
+      @include BOX-SHADOW(2, 2, 15, null, rgba(0, 0, 0, 0.2));
+      width: calc(50% - calc(35px / 2));
+      border-radius: 20px;
+      background-color: var(--base-white);
+    }
+  }
+  &__tit {
+    @include FONT(20, 700);
+    @include MG-IP1(0, 0, 3, 0);
+  }
+  &__date {
+    @include FONT(14, 500, var(--color-contrastyA));
+  }
+  &__info {
+    @include FLEX(null, null, column);
+    @include BORDER(top, var(--color-contrastyE5));
+    @include MG-IP1(15, 0, 0, 0);
+    @include PD-IP1(10, 0, 0, 0);
+    &__tit {
+      @include FONT(18, 700);
+    }
+    &__list {
+      @include MG-IP1(10, 0, 0, 0);
+      li {
+        @include FONT(16, 500);
+        @include PD-IP1(0, 0, 0, 10);
+        @include POSITION;
+        &:before {
+          @include POSITION(absolute, 11px, null, null, 0);
+          width: 5px;
+          height: 5px;
+          content: "";
+          border-radius: 100%;
+          background-color: var(--color-contrasty3);
+        }
+      }
+    }
+    &__skills {
+      @include FONT(14, 500, var(--base-white), 1.6);
+      @include PD-IP2(4, 12);
+      @include MG-IP1(10, 0, 0, 0);
+      align-self: flex-start;
+      border-radius: 8px;
+      background-color: #ff9aa5;
+    }
+  }
+  &__links {
+    @include MG-IP1(20, 0, 0, 0);
+    @include FLEX(null, center);
+    gap: 0 8px;
+    a {
+      @include FONT(14, 500);
+      @include PD-IP2(6, 12);
+      @include BORDER(full, var(--color-contrastyC));
+      border-radius: 8px;
+      transition: all 0.2s;
+      background-color: var(--base-white);
+      &:hover {
+        background-color: var(--color-contrasty3);
+        border-color: var(--color-contrasty3);
+        color: var(--base-white);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .project {
+    &__list {
+      gap: 20px 0;
+      & > li {
+        @include PD-IP1(16, 20, 25, 20);
+        width: 100%;
+      }
+    }
+    &__tit {
+      @include FONT(18);
+    }
+    &__date {
+      @include FONT(13);
+    }
+    &__info {
+      //@include PD-IP1(10, 0, 0, 0);
+      @include MG-IP1(10, 0, 0, 0);
+      &__tit {
+        @include FONT(16);
+      }
+      &__list {
+        li {
+          @include PD-IP1(0, 0, 0, 8);
+          @include FONT(14);
+          &:before {
+            width: 3px;
+            height: 3px;
+            top: 8px;
+          }
+        }
+      }
+      &__skills {
+        @include FONT(12);
+        @include PD-IP2(3, 10);
+      }
+    }
+    &__links {
+      @include MG-IP1(14, 0, 0, 0);
+      a {
+        @include FONT(12);
+        @include PD-IP2(4, 10);
+      }
+    }
+  }
 }

@@ -41,6 +41,9 @@ function Skills() {
           <li>
             <h3 className={`${styles.skills__tit} ${styles.back}`}>Back</h3>
             <div className={styles.skills__info}>
+              <span className={styles.skills__info__item}>Spring Boot</span>
+              <span className={styles.skills__info__item}>MyBatis</span>
+              <span className={styles.skills__info__item}>JPA</span>
               <span className={styles.skills__info__item}>OracleDB</span>
               <span className={styles.skills__info__item}>MySQL</span>
             </div>
