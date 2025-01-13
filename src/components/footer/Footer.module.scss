@@ -1,0 +1,18 @@
+.footer {
+  @include FLEX(center, center);
+  @include PD-IP2(0, 20);
+  height: 100px;
+  background-color: var(--color-contrasty3);
+  &__copy {
+    @include FONT(16, 500, var(--base-white));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    height: 70px;
+    &__copy {
+      @include FONT(14);
+    }
+  }
+}

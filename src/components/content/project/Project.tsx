@@ -137,6 +137,32 @@ function Project() {
               </a>
             </div>
           </li>
+          <li>
+            <h3 className={styles.project__tit}>
+              포트폴리오 웹사이트(퍼블리셔)
+            </h3>
+            <span className={styles.project__date}>2020(1인 개인프로젝트)</span>
+            <div className={styles.project__info}>
+              <h4 className={styles.project__info__tit}>
+                국비지원 수료 후 퍼블리셔 개인 프로젝트
+              </h4>
+              <ul className={styles.project__info__list}>
+                <li>1번 사이트는 퍼블효과 적용 사이트</li>
+                <li>2번 사이트는 첫 회사 재직 중 프로젝트</li>
+              </ul>
+              <p className={styles.project__info__skills}>
+                HTML, SCSS, JavaScript, jQeury, AnyBuild
+              </p>
+            </div>
+            <div className={styles.project__links}>
+              <a href="http://kth89.dothome.co.kr/" target="_blank">
+                사이트보기
+              </a>
+              <a href="http://kth898989.dothome.co.kr/" target="_blank">
+                사이트보기
+              </a>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
