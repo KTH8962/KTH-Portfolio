@@ -50,11 +50,11 @@
       @include PD-IP2(30, 20);
     }
     &__tit {
-      @include FONT(32);
+      @include FONT(32, null, null, 1.3);
     }
     &__desc {
       @include FONT(14);
-      @include MG-IP1(10, 0, 0, 0);
+      @include MG-IP1(5, 0, 0, 0);
     }
     &__btn {
       @include FONT(12);

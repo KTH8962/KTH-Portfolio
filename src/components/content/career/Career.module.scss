@@ -1,3 +1,187 @@
+$careerImg: (mtis, radcns, tpb, mandoo);
 .career {
-  @include FLEX;
+  background-color: rgb(223, 231, 250);
+  word-break: keep-all;
+  &__wrap {
+    @include FLEX(center, center);
+  }
+  &__list {
+    @include FLEX(null, null, column);
+    width: 100%;
+    max-width: 1200px;
+    gap: 40px 0;
+    & > li {
+      @include FLEX;
+      @include PD-IP2(30, 0);
+      @include BORDER(bottom, var(--color-contrastyC));
+    }
+  }
+  &__imgBox {
+    @include FLEX(center);
+    width: 260px;
+    &__item {
+      @include FONT(0);
+      @include BG(center, 200px);
+      width: 200px;
+      height: 200px;
+      border-radius: 100%;
+      overflow: hidden;
+      @each $item in $careerImg {
+        &.#{$item} {
+          background-image: url($url-images + "career_#{$item}.png");
+        }
+      }
+    }
+  }
+  &__infoBox {
+    @include PD-IP2(10, 30);
+    width: calc(100% - 260px);
+    &__tit {
+      @include FONT(26, 800);
+    }
+    &__date {
+      @include FONT(18, 500, var(--color-contrastyA));
+      @include MG-IP1(5, 0, 0, 0);
+    }
+    &__desc {
+      @include FONT(17, 500, null, 1.6);
+      @include MG-IP1(20, 0, 0, 0);
+    }
+    &__items {
+      @include MG-IP1(12, 0, 0, 0);
+      &__item {
+        @include FONT(16, 500, var(--base-white));
+        @include PD-IP2(8, 12);
+        border-radius: 10px;
+        background-color: var(--color-contrasty2);
+      }
+    }
+    &__info {
+      @include MG-IP1(20, 0, 0, 0);
+      &__box {
+        @include PD-IP2(10, 0);
+      }
+    }
+    &__stit {
+      @include FONT(18, 700, null, 1.1);
+      @include POSITION;
+      @include PD-IP1(2, 0, 0, 14);
+      &::before {
+        @include POSITION(absolute, 0, null, null, 0);
+        content: "";
+        width: 4px;
+        height: 100%;
+        background-color: var(--color-contrasty2);
+      }
+    }
+    &__list {
+      @include FLEX(null, null, column);
+      @include MG-IP1(10, 0, 0, 0);
+      gap: 5px 0;
+      li {
+        @include POSITION;
+        @include PD-IP1(0, 0, 0, 10);
+        &:before {
+          @include POSITION(absolute, 11px, null, null, 0);
+          content: "";
+          width: 5px;
+          height: 5px;
+          border-radius: 100%;
+          background-color: var(--color-contrasty3);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .career {
+    &__imgBox {
+      width: 240px;
+    }
+    &__infoBox {
+      @include PD-IP2(10, 20);
+      width: calc(100% - 240px);
+      &__desc {
+        @include FONT(16);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .career {
+    &__list {
+      gap: 20px 0;
+      & > li {
+        @include PD-IP2(20, 0);
+        flex-wrap: wrap;
+      }
+    }
+    &__imgBox {
+      width: 100%;
+    }
+    &__infoBox {
+      width: 100%;
+      &__tit {
+        @include FONT(22);
+        @include MG-IP1(10, 0, 0, 0);
+        text-align: center;
+      }
+      &__date {
+        @include FONT(14);
+        text-align: center;
+      }
+      &__desc {
+        @include FONT(13);
+        @include MG-IP1(10, 0, 0, 0);
+        text-align: center;
+      }
+      &__items {
+        @include FLEX(center, center);
+        &__item {
+          @include FONT(14);
+          @include PD-IP2(6, 10);
+        }
+      }
+      &__stit {
+        @include FONT(16);
+        @include PD-IP1(1, 0, 0, 8);
+        &:before {
+          width: 3px;
+        }
+      }
+      &__list {
+        @include MG-IP1(8, 0, 0, 0);
+        li {
+          @include FONT(14);
+          @include PD-IP1(0, 0, 0, 8);
+          &:before {
+            width: 3px;
+            height: 3px;
+            top: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .career {
+    &__imgBox {
+      &__item {
+        width: 180px;
+        height: 180px;
+      }
+    }
+    &__infoBox {
+      @include PD-IP2(10, 0);
+      &__desc {
+        br {
+          display: none;
+        }
+      }
+    }
+  }
 }

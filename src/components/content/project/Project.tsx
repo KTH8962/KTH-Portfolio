@@ -8,7 +8,11 @@ function Project() {
   useEffect(() => {
     setClassName((prevClassName) => [...prevClassName, styles.project])
   }, [setClassName])
-  return <div className={`${styles.content} ${styles.project}`}>Project</div>
+  return (
+    <div className={`${styles.content} ${styles.project}`}>
+      <h2 className={styles.content__tit}>Project</h2>
+    </div>
+  )
 }
 
 export default Project
