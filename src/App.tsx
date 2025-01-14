@@ -1,6 +1,7 @@
+import { Analytics } from "@vercel/analytics/react"
 import { RecoilRoot } from "recoil"
-import MainPage from "./pages/MainPage"
 import { BrowserRouter } from "react-router-dom"
+import MainPage from "./pages/MainPage"
 
 function App() {
   return (
