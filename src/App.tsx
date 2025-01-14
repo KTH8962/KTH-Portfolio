@@ -8,6 +8,7 @@ function App() {
     <RecoilRoot>
       <BrowserRouter>
         <MainPage />
+        <Analytics />
       </BrowserRouter>
     </RecoilRoot>
   )
