@@ -10,7 +10,9 @@ function Career() {
   }, [setClassName])
   return (
     <div className={`${styles.content} ${styles.career}`}>
-      <h2 className={styles.content__tit}>Career</h2>
+      <h2 className={`${styles.content__tit} ${styles.content__txt}`}>
+        Career
+      </h2>
       <div className={styles.career__wrap}>
         <ul className={styles.career__list}>
           <li>

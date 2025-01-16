@@ -10,7 +10,9 @@ function Project() {
   }, [setClassName])
   return (
     <div className={`${styles.content} ${styles.project}`}>
-      <h2 className={styles.content__tit}>Project</h2>
+      <h2 className={`${styles.content__tit} ${styles.content__txt}`}>
+        Project
+      </h2>
       <div className={styles.project__wrap}>
         <ul className={styles.project__list}>
           <li>
@@ -102,7 +104,7 @@ function Project() {
                 <li>useContext를 사용한 전역 상태 관리</li>
               </ul>
               <p className={styles.project__info__skills}>
-                React, SCSS, JavaScript
+                React, SCSS, JavaScript, express, multer
               </p>
             </div>
             <div className={styles.project__links}>

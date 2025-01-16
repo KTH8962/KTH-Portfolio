@@ -484,6 +484,17 @@ $url-images-ico: "/assets/images/ico/";
     @include MG-IP1(0, 0, 50, 0);
     font-family: "Tenada";
     text-align: center;
+    &.content__txt {
+      @include POSITION;
+      &:before {
+        @include FONT(14, 500, var(--color-contrastyC));
+        @include POSITION(absolute, 115%, 50%);
+        transform: translateX(50%);
+        width: 100%;
+        font-family: var(--base-font);
+        content: "팀프로젝트를 제외한 모든 프로젝트는 100% 개인 기여도입니다.";
+      }
+    }
   }
 }
 
@@ -493,6 +504,11 @@ $url-images-ico: "/assets/images/ico/";
     &__tit {
       @include FONT(28);
       @include MG-IP1(0, 0, 30, 0);
+      &.content__txt {
+        &:before {
+          @include FONT(12);
+        }
+      }
     }
   }
 }
