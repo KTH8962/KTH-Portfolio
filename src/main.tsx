@@ -1,4 +1,11 @@
 import { createRoot } from "react-dom/client"
-import App from "./App.tsx"
+import { RecoilRoot } from "recoil"
+import Router from "@/pages/Index.tsx"
+import { Analytics } from "@vercel/analytics/react"
 
-createRoot(document.getElementById("root")!).render(<App />)
+createRoot(document.getElementById("root")!).render(
+  <RecoilRoot>
+    <Router />
+    <Analytics />
+  </RecoilRoot>
+)

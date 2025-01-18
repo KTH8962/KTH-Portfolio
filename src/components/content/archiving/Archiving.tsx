@@ -1,11 +1,11 @@
 import { useSetRecoilState } from "recoil"
 import { classState } from "@/store/atoms/classState"
-import { useMemo } from "react"
+import { useEffect } from "react"
 import styles from "./Archiving.module.scss"
 
 function Archiving() {
   const setClassName = useSetRecoilState<Array<string>>(classState)
-  useMemo(() => {
+  useEffect(() => {
     setClassName((prevClassName) => [...prevClassName, styles.archiving])
   }, [setClassName])
   return (

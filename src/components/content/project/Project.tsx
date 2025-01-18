@@ -1,11 +1,11 @@
 import { useSetRecoilState } from "recoil"
 import styles from "./Project.module.scss"
 import { classState } from "@/store/atoms/classState"
-import { useMemo } from "react"
+import { useEffect } from "react"
 
 function Project() {
   const setClassName = useSetRecoilState<Array<string>>(classState)
-  useMemo(() => {
+  useEffect(() => {
     setClassName((prevClassName) => [...prevClassName, styles.project])
   }, [setClassName])
   return (
