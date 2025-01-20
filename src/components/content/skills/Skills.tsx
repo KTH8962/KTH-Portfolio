@@ -35,6 +35,7 @@ function Skills() {
             <h3 className={`${styles.skills__tit} ${styles.front}`}>Front</h3>
             <div className={styles.skills__info}>
               <span className={styles.skills__info__item}>REACT(Recoil)</span>
+              <span className={styles.skills__info__item}>REACT(Zustand)</span>
               <span className={styles.skills__info__item}>Vue(Pinia)</span>
             </div>
           </li>
