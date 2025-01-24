@@ -36,6 +36,9 @@ function Skills() {
             <div className={styles.skills__info}>
               <span className={styles.skills__info__item}>REACT(Recoil)</span>
               <span className={styles.skills__info__item}>REACT(Zustand)</span>
+              <span className={styles.skills__info__item}>
+                REACT(React Query)
+              </span>
               <span className={styles.skills__info__item}>Vue(Pinia)</span>
             </div>
           </li>
