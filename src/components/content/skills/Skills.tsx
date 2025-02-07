@@ -41,6 +41,7 @@ function Skills() {
               </span>
               <span className={styles.skills__info__item}>REACT(Next)</span>
               <span className={styles.skills__info__item}>REACT(Vitest)</span>
+              <span className={styles.skills__info__item}>REACT(Cypress)</span>
               <span className={styles.skills__info__item}>Vue(Pinia)</span>
             </div>
           </li>
