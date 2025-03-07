@@ -36,9 +36,9 @@ function Skills() {
             <div className={styles.skills__info}>
               <span className={styles.skills__info__item}>REACT(Recoil)</span>
               <span className={styles.skills__info__item}>REACT(Zustand)</span>
-              <span className={styles.skills__info__item}>
+              {/* <span className={styles.skills__info__item}>
                 REACT(React Query)
-              </span>
+              </span> */}
               <span className={styles.skills__info__item}>REACT(Next)</span>
               <span className={styles.skills__info__item}>REACT(Vitest)</span>
               <span className={styles.skills__info__item}>REACT(Cypress)</span>
