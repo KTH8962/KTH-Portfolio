@@ -65,6 +65,14 @@ function Project() {
                 TypeScript, React, Zustand, SCSS, Vercil
               </p>
             </div>
+            <div className={styles.project__links}>
+              <a href="https://free-api-gilt.vercel.app/" target="_blank">
+                사이트보기
+              </a>
+              <a href="https://github.com/KTH8962/free-api" target="_blank">
+                소스보기
+              </a>
+            </div>
           </li>
           <li>
             <h3 className={styles.project__tit}>포트폴리오 웹사이트</h3>
