@@ -46,6 +46,27 @@ function Project() {
             </div>
           </li>
           <li>
+            <h3 className={styles.project__tit}>FREE-API</h3>
+            <span className={styles.project__date}>
+              2025. 03(1인 개인프로젝트)
+            </span>
+            <div className={styles.project__info}>
+              <h4 className={styles.project__info__tit}>API적용 사이트</h4>
+              <ul className={styles.project__info__list}>
+                <li>
+                  교재, 유튜브, 사이트 등 참고했던 자료 숙달을 위한 사이트
+                </li>
+                <li>React로 무료 API사이트의 정보를 받아와 작업</li>
+                <li>Zustand를 이용한 전역관리</li>
+                <li>Vercel을 이용해 사이트 배포</li>
+                <li>TanStack Query, Vitest 등 추후 작업 예정</li>
+              </ul>
+              <p className={styles.project__info__skills}>
+                TypeScript, React, Zustand, SCSS, Vercil
+              </p>
+            </div>
+          </li>
+          <li>
             <h3 className={styles.project__tit}>포트폴리오 웹사이트</h3>
             <span className={styles.project__date}>
               2025. 01(1인 개인프로젝트)
